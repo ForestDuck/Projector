@@ -1,12 +1,11 @@
-// Ex-1
-function durationBetweenDates(date1,date2,gap){
+function durationBetweenDates(date1='11.01.2022',date2='02.09.2023',gap='days'){
     //changing date to number
     date1 =  new Date(date1);
     date2 =  new Date(date2);
-    // creating empty varible to get dates inteval length
+    // creating empty variable to get dates interval length
     let datesDiff;
     //insures that function will work even when date2 > date1
-    if(date1 == 'Invalid Date'|| date2 == 'Invalid Date'){
+    if(date1 === 'Invalid Date'|| date2 === 'Invalid Date'){
       return 'Invalid Date'
     }else if( date2 > date1){
       datesDiff = date2-date1
@@ -27,7 +26,7 @@ function durationBetweenDates(date1,date2,gap){
      
     // checking console  
     
-    console.log (durationBetweenDates('10.10.2031','10.11.2041',"days") )
+    console.log (durationBetweenDates())
     
 // Ex-2
     function optimizer(data) {
@@ -49,6 +48,8 @@ function durationBetweenDates(date1,date2,gap){
     console.log(updatedPriceData)
 
 // Ex-3
+
+//Recursive function
   function recursiveOddSumTo(number) {
     // stop condition
     if (number <= 0){
@@ -65,6 +66,21 @@ function durationBetweenDates(date1,date2,gap){
         }
     }
   }
+//Iteration function
+  function iterationOddSumTo(number){
+    let oddNum = 0
+    for(let i = 0; i< number; i++){
+        if(i% 2 === 0){
+             oddNum+=i+1
+        }
+    }
+    return oddNum
+  }
+
+
+
 //checking arguments
 console.log(recursiveOddSumTo(1))
 console.log(recursiveOddSumTo(10))
+console.log(iterationOddSumTo(3))
+console.log(iterationOddSumTo(13))
