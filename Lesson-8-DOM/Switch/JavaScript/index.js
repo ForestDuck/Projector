@@ -26,12 +26,14 @@ const turnOnText =  `<button class=" cybr-btn">Turn On<span aria-hidden>_</span>
 const lastState = localStorage.getItem('state');
 if (lastState === 'on') {
   document.body.style.backgroundColor = darkBg;
+   document.body.style.color = lightBg;
   button.innerHTML = turnOnText;
-  lastTurn.innerText = `Last turn on: ${localStorage.getItem('lastChange')}`;
+  lastTurn.innerText = `Last turn off: ${localStorage.getItem('lastChange')}`;
 } else {
   document.body.style.backgroundColor = lightBg;
+   document.body.style.color = darkBg;
   button.innerHTML = turnOffText;
-  lastTurn.innerText = `Last turn off: ${localStorage.getItem('lastChange')}`;
+  lastTurn.innerText = `Last turn on: ${localStorage.getItem('lastChange')}`;
 }
 // The toggleState() function is defined, which is called when the button 
 // is clicked. This function first retrieves the current state of the button 
