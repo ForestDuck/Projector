@@ -1,4 +1,5 @@
 
+
 function HealthPotion() {
     this.health = 100;
   }
@@ -9,17 +10,20 @@ function HealthPotion() {
 
 
 function MagicUser() {
+    HealthPotion.call(this);
     this.mana = 200;
   }
-  
+  MagicUser.prototype = Object.create(HealthPotion.prototype);
+  Object.assign(MagicUser.prototype);
+
   MagicUser.prototype.drinkPotion = function() {
     this.mana += 30;
+
   };
 
 
   
   function Mage() {
-    HealthPotion.call(this)
     MagicUser.call(this);
     this.class = 'Mage';
     this.power = 'Fireball';
@@ -27,8 +31,8 @@ function MagicUser() {
     this.ultMove = 'Meteor Rain';
     // this.health = 100;
   }
-  Mage.prototype = Object.create(HealthPotion.prototype);
-  Object.assign(Mage.prototype, MagicUser.prototype);
+  Mage.prototype = Object.create(MagicUser.prototype);
+  Object.assign(Mage.prototype);
   
 
   Mage.prototype.useMagic = function(cast) {
@@ -68,8 +72,10 @@ function MagicUser() {
     this.health = 120;
     this.minion = 'Skeleton soldier';
   }
-  Warlock.prototype = Object.create(HealthPotion.prototype);
-  Object.assign(Warlock.prototype, MagicUser.prototype);
+
+  Warlock.prototype = Object.create(MagicUser.prototype);
+  Object.assign(Warlock.prototype);
+
 
   Warlock.prototype.useMagic = function(cast) {
     if (this.mana > 0) {
@@ -176,11 +182,14 @@ const myMage = new Mage();
 // myMage.useMagic('ult'); 
 myMage.healthPotion();
 console.log(myMage.health)
+myMage.drinkPotion()
+console.log(myMage.mana)
 
 const myWarlock = new Warlock();
 // myWarlock.introduce(); 
 // myWarlock.useMagic('power'); 
 // myWarlock.void(); 
+myWarlock.healthPotion();
 myWarlock.healthPotion();
 console.log(myWarlock.health)
 
@@ -200,6 +209,16 @@ const myRouge = new Rouge();
 // myRouge.throwSmokeBomb(); 
 myRouge.healthPotion();
 console.log(myRouge.health)
+
+  
+  
+  
+
+
+
+
+
+
 
   
   
