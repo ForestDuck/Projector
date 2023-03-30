@@ -18,15 +18,15 @@
 // яка була додана до promise1 за допомогою методу .then(). 
 // Ця функція зворотного виклику виведе число 2 до консолі.
 
-// console.log('start');
-// const promise1 = new Promise((resolve, reject) => {
-// console.log(1)
-// resolve(2)
-// })
+console.log('start');
+const promise1 = new Promise((resolve, reject) => {
+console.log(1)
+resolve(2)
+})
 
-// promise1.then(res => {
-// console.log(res)
-// })
+promise1.then(res => {
+console.log(res)
+})
 
 // В другому методі .then() викидається помилка, 
 // то виконається метод .catch(), який поверне значення 1. 
@@ -34,15 +34,14 @@
 // до повернутого значення 1, тобто отримуємо значення 2. 
 // Останній метод .then() виводить це значення 2 до консолі.
 
-// Promise.resolve(1)
-// 		.then((x) => x + 1)
-// 		.then((x) => { throw new Error('My Error') })
-// 		.catch(() => 1)
-// 		.then((x) => x + 1)
-// 		.then((x) => console.log(x))
-// 		.catch(console.error)
+Promise.resolve(1)
+  .then((x) => x + 1)
+  .then((x) => { throw new Error('My Error') })
+  .catch(() => 1)
+  .then((x) => x + 1)
+  .then((x) => console.log(x))
+  .catch(console.error)
 
-// // 
 
 const promise = new Promise(res => res(2));
 	promise.then(v => {
